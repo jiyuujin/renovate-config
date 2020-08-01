@@ -1,0 +1,29 @@
+{
+  "extends": [
+    ":timezone(Asia/Tokyo)",
+    "config:base",
+    ":label(renovate)",
+    "group:monorepos"
+  ],
+  "npm": {
+    "extends": [
+      ":noUnscheduledUpdates",
+      ":unpublishSafe"
+    ],
+    "schedule": "after 10pm and before 6am on every weekday",
+    "packageRules": [
+      {
+        "groupName": "ESLint and Prettier",
+        "packageNames": [
+          "eslint",
+          "prettier"
+        ],
+        "packagePatterns": [
+          "^eslint-",
+          "^prettier-"
+        ]
+      }
+    ],
+    "assignees": ["jiyuujin"]
+  }
+}
